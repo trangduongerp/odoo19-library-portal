@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="library_books_template"
+              name="Library Books">
+
+        <t t-call="website.layout">
+
+            <div class="container mt-4">
+
+                <h1>Danh sách sách</h1>
+
+                <div class="row">
+
+                    <t t-foreach="books" t-as="book">
+
+                        <div class="col-lg-3 mb-4">
+
+                            <div class="card h-100">
+
+                                <img t-att-src="'/web/image/library.book/%s/image' % book.id"
+                                     class="card-img-top"
+                                     t-att-alt="book.name"/>
+
+                                <div class="card-body">
+
+                                    <h5>
+                                        <t t-esc="book.name"/>
+                                    </h5>
+
+                                    <p>
+                                        <t t-esc="book.author"/>
+                                    </p>
+
+                                    <a t-att-href="'/library/book/%s' % book.id"
+                                       class="btn btn-primary">
+                                        Chi tiết
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </t>
+
+                </div>
+
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>
